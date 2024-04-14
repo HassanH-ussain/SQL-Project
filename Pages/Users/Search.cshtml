@@ -1,0 +1,34 @@
+﻿@page
+@model LoveSync_DBProject.Pages.Users.SearchModel
+
+<br>
+<h2>Find your possible match!</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Hobbies of All Users</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.listSearch)
+        {
+            <tr>
+                <td>@item.interest</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (!string.IsNullOrEmpty(Model.errorMessage))
+{
+    <div class="alert alert-danger" role="alert">
+        @Model.errorMessage
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(Model.successMessage))
+{
+    <div class="alert alert-success" role="alert">
+        @Model.successMessage
+    </div>
+}

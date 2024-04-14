@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace LoveSync.Pages
+namespace LoveSync_DBProject.Pages
 {
     public class IndexModel : PageModel
     {

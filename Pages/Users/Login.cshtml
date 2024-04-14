@@ -1,9 +1,12 @@
 ﻿@page
-@model LoveSync_DBProject.Pages.Users.CreateModel
+@model LoveSync_DBProject.Pages.Users.LoginModel
 @{
 }
+
+
 <br>
-<h2>New Client</h2>
+<h1>Make final changes if needed</h1>
+<h2>Edit Your Profile</h2>
 
 @if (Model.errorMessage.Length > 0)
 {
@@ -14,6 +17,7 @@
 }
 
 <form method="POST">
+    <input type="hidden" name="id" value="@Model.userInfo.id">
     <div class="row mb-3">
         <label class="col-sm-3 col-form-label">Name</label>
         <div class="col-sm-6">

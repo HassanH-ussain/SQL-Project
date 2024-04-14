@@ -2,21 +2,22 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Data.SqlClient;
 
-namespace LoveSync.Pages.Users
+namespace MyStore.Pages.Users
 {
     public class IndexModel : PageModel
     {
         public List<UserInfo> listUsers = new List<UserInfo>();
+
         public void OnGet()
         {
             try
             {
-                String connectionString = "Data Source=SHAWTY;Initial Catalog=dating_project;Integrated Security=True;TrustServerCertificate=True";
+                String connectionString = "Data Source=SHAWTY;Initial Catalog=dating_project;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    String sql = "SELECT * FROM users";
+                    String sql = "SELECT * FROM Users_Table";
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
                         using (SqlDataReader reader = command.ExecuteReader())
@@ -30,8 +31,8 @@ namespace LoveSync.Pages.Users
                                 userInfo.phone = reader.GetString(3);
                                 userInfo.address = reader.GetString(4);
                                 userInfo.biography = reader.GetString(5);
-                                userInfo.interest = reader.GetString(6);
-                                userInfo.age = "" + reader.GetInt32(7);
+                                userInfo.age = "" + reader.GetInt32(6);
+                                userInfo.interest = reader.GetString(7);
                                 userInfo.created_at = reader.GetDateTime(8).ToString();
 
                                 listUsers.Add(userInfo);
@@ -40,12 +41,12 @@ namespace LoveSync.Pages.Users
                     }
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Console.WriteLine("Exception: " + ex.ToString());
             }
         }
     }
-
 
 
     public class UserInfo
