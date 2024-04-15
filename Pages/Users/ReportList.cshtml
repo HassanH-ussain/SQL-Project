@@ -1,0 +1,31 @@
+﻿@page
+@model LoveSync_DBProject.Pages.Users.ReportListModel
+@{
+}
+
+<br />
+<h2>List of Reports</h2>
+<a class="btn btn-primary btn-sm" href="/Users/Reporting">Submit a Report</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Reported User</th>
+            <th>Reporter</th>
+            <th>Reason</th>
+            <th>Estimated Date and Time (MM/dd/YYYY HH:mm:ss)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.listReports)
+        {
+            <tr>
+                <td>@item.ReportID</td>
+                <td>@item.ReportedUserID</td>
+                <td>@item.ReporterID</td>
+                <td>@item.ReportReason</td>
+                <td>@item.ReportDate</td>
+            </tr>
+        }
+    </tbody>
+</table>

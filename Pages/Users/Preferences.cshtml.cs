@@ -20,7 +20,7 @@ namespace LoveSync_DBProject.Pages.Users
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    String sql = "SELECT name, biography, age, interest FROM Users_Table WHERE interest=@interest";
+                    String sql = "SELECT name, biography, age, interest FROM Interest WHERE interest=@interest";
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
                         command.Parameters.AddWithValue("@interest", interest);

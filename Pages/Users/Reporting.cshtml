@@ -1,0 +1,52 @@
+﻿@page
+@model LoveSync_DBProject.Pages.Users.ReportingModel
+@{
+}
+
+<br />
+<h2>New Report</h2>
+
+@if (!string.IsNullOrEmpty(Model.errorMessage))
+{
+    <div class="alert alert-danger" role="alert">
+        @Model.errorMessage
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(Model.successMessage))
+{
+    <div class="alert alert-success" role="alert">
+        @Model.successMessage
+    </div>
+}
+
+<form method="post">
+    <div class="mb-3">
+        <label for="ReportID" class="form-label">Report ID</label>
+        <input type="text" class="form-control" id="ReportID" name="ReportID" value="@Model.reportInfo.ReportID" readonly>
+    </div>
+    <div class="mb-3">
+        <label for="ReportedUserID" class="form-label">Reported User ID</label>
+        <input type="text" class="form-control" id="ReportedUserID" name="ReportedUserID" value="@Model.reportInfo.ReportedUserID">
+    </div>
+    <div class="mb-3">
+        <label for="ReporterID" class="form-label">Reporter ID</label>
+        <input type="text" class="form-control" id="ReporterID" name="ReporterID" value="@Model.reportInfo.ReporterID">
+    </div>
+    <div class="mb-3">
+        <label for="ReportReason" class="form-label">Report Reason</label>
+        <input type="text" class="form-control" id="ReportReason" name="ReportReason" value="@Model.reportInfo.ReportReason">
+    </div>
+    <div class="mb-3">
+        <label for="ReportDate" class="form-label">Report Date</label>
+        <input type="text" class="form-control" id="ReportDate" name="ReportDate" value="@Model.reportInfo.ReportDate">
+    </div>
+    <div class="row mb-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <div class="col-sm-3 d-grid">
+            <a class="btn btn-outline-primary" href="/Users/ReportList" role="button">Cancel</a>
+        </div>
+    </div>
+</form>

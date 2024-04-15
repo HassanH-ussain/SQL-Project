@@ -22,7 +22,7 @@ namespace LoveSync_DBProject.Pages.Users
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    String sql = "SELECT interest FROM Users_Table";
+                    String sql = "SELECT interest FROM Interest";
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
                         using (SqlDataReader reader = command.ExecuteReader())
@@ -44,44 +44,6 @@ namespace LoveSync_DBProject.Pages.Users
         }
         public void OnPost()
         {
-            //searchInfo.interest = Request.Form["interest"];
-
-            //if (searchInfo.interest.Length == 0)
-            //{
-            //    errorMessage = "All fields are required";
-            //    return;
-            //}
-            //try
-            //{
-            //    String connectionString = "Data Source=SHAWTY;Initial Catalog=dating_project;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
-            //    using (SqlConnection connection = new SqlConnection(connectionString))
-            //    {
-            //        connection.Open();
-            //        String sql = "SELECT * FROM Users_Table WHERE interest LIKE @interest";
-
-            //        using (SqlCommand command = new SqlCommand(sql, connection))
-            //        {
-            //            command.Parameters.AddWithValue("@interest",searchInfo.interest + "%");
-            //            using (SqlDataReader reader = command.ExecuteReader())
-            //            {
-            //                while (reader.Read())
-            //                {
-            //                    SearchInfo searchInfo = new SearchInfo();
-            //                    searchInfo.name = reader.GetString(0);
-            //                    searchInfo.biography = reader.GetString(1);
-            //                    searchInfo.age = "" + reader.GetInt32(2);
-            //                    searchInfo.interest = reader.GetString(3);
-
-            //                    listSearch.Add(searchInfo);
-            //                }
-            //            }
-            //        }
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine("Exception: " + ex.ToString());
-            //}
             Response.Redirect("/Users/Preferences");
         }
     }
