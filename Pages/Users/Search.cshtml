@@ -3,10 +3,11 @@
 
 <br>
 <h2>Find your possible match!</h2>
+
 <table class="table">
     <thead>
         <tr>
-            <th>Hobbies of All Users</th>
+            <th>Interest</th>
         </tr>
     </thead>
     <tbody>
@@ -14,6 +15,9 @@
         {
             <tr>
                 <td>@item.interest</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Users/Preferences?interest=@item.interest">Submit</a>
+                    </td>
             </tr>
         }
     </tbody>

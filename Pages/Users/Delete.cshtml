@@ -1,16 +1,16 @@
 ﻿@page
 @using System.Data.SqlClient;
+
 @{
-    try
-    {
+    try{
         String id = Request.Query["id"];
 
-        string connectionString = "Data Source = SHAWTY; Initial Catalog = dating_project; Integrated Security = True; Encrypt = True; TrustServerCertificate = True";
+        string connectionString = "Data Source=SHAWTY;Initial Catalog=dating_project;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
         using (SqlConnection connection = new SqlConnection(connectionString))
         {
             connection.Open();
 
-            String sql = "DELETE FROM users WHERE id=@id";
+            String sql = "DELETE FROM Users_Table WHERE id=@id";
             using (SqlCommand command = new SqlCommand(sql, connection))
             {
                 command.Parameters.AddWithValue("@id", id);
@@ -18,10 +18,12 @@
                 command.ExecuteNonQuery();
             }
         }
-        }
-        catch(Exception ex){
+    }
+    catch (Exception ex)
+    {
+    }
 
-        }
-       Response.Redirect("/Users/Index");
+    Response.Redirect("/Users/Index");
+
     }
 }

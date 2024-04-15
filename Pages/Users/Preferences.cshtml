@@ -1,0 +1,41 @@
+﻿@page
+@model LoveSync_DBProject.Pages.Users.PreferencesModel
+@{
+}
+<h2>Users with Interest: @Model.listPreference.FirstOrDefault()?.interest</h2>
+
+@if (!string.IsNullOrEmpty(Model.errorMessage))
+{
+    <div class="alert alert-danger" role="alert">
+        @Model.errorMessage
+    </div>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Biography</th>
+            <th>Age</th>
+            <th>Interest</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.listPreference)
+        {
+            <tr>
+                <td>@item.name</td>
+                <td>@item.biography</td>
+                <td>@item.age</td>
+                <td>@item.interest</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Action buttons">
+                        <a class="btn btn-primary btn-sm" href="/Users/Matches">Submit</a>
+                        <a class="btn btn-outline-primary btn-sm" href="/Users/Search" role="button">Cancel</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
