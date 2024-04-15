@@ -1,0 +1,46 @@
+﻿@page
+@model MyStore.Pages.Users.IndexModel
+@{
+}
+
+<br>
+<h2>List of Users</h2>
+<a class='btn btn-primary btn-sm' href='/Users/Create'>New User</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Biography</th>
+            <th>Age</th>
+            <th>Interest</th>
+            <th>Created At</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.listUsers)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.name</td>
+                <td>@item.email</td>
+                <td>@item.phone</td>
+                <td>@item.address</td>
+                <td>@item.biography</td>
+                <td>@item.age</td>
+                <td>@item.interest</td>
+                <td>@item.created_at</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Users/Login?id=@item.id">Login</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+

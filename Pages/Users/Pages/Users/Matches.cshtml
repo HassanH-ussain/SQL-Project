@@ -1,0 +1,33 @@
+﻿@page
+@model LoveSync_DBProject.Pages.Users.MatchesModel
+@{
+}
+
+@if (!string.IsNullOrEmpty(Model.errorMessage))
+{
+    <div class="alert alert-danger" role="alert">
+        @Model.errorMessage
+    </div>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Match ID</th>
+            <th>Matcher</th>
+            <th>Matched Back</th>
+            <th>Matched_Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.listMatches)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.matcher</td>
+                <td>@item.matched_with</td>
+                <td>@item.matched_date</td>
+            </tr>
+        }
+    </tbody>
+</table>
